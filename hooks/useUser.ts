@@ -12,6 +12,9 @@ interface User {
   following: number;
   email: string;
   dummyPassword: string;
+  postActivity: boolean;
+  friendPosts: boolean;
+  taggedPosts: boolean;
   setAttribute: (attribute: string, value: any) => void; // Updated to `any` to allow more flexible types
   resetAttributes: () => void;
   setAllUndefined: () => void;
@@ -34,6 +37,9 @@ const initialState: Omit<
   following: 21,
   email: "webdiv@gmail.com",
   dummyPassword: "password",
+  postActivity: true,
+  friendPosts: true,
+  taggedPosts: true,
 };
 
 export const useUser = create<User>()((set) => ({
@@ -60,5 +66,8 @@ export const useUser = create<User>()((set) => ({
       following: undefined,
       email: undefined,
       dummyPassword: undefined,
+      postActivity: undefined,
+      friendPosts: undefined,
+      taggedPosts: undefined,
     })),
 }));

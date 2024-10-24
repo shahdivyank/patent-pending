@@ -8,11 +8,14 @@ import { Switch } from "react-native-gesture-handler";
 import { router } from "expo-router";
 
 const Settings = () => {
-  const { email, dummyPassword, setAllUndefined } = useUser();
-
-  const [postActivity, setPostActivity] = useState(false);
-  const [friendPosts, setFriendPosts] = useState(true);
-  const [taggedPosts, setTaggedPosts] = useState(true);
+  const {
+    email,
+    postActivity,
+    friendPosts,
+    taggedPosts,
+    setAttribute,
+    setAllUndefined,
+  } = useUser();
 
   const onSignOut = () => {
     setAllUndefined();
@@ -44,8 +47,8 @@ const Settings = () => {
         </View>
         <View className="border-[0.5px] border-beatdrop-border" />
         <Field
-          field="Password"
-          value={dummyPassword}
+          field="Change Password"
+          icon="Chevron_Right"
           link="/profile/password"
         />
         <View className="border-[0.5px] border-beatdrop-border" />
@@ -57,19 +60,28 @@ const Settings = () => {
 
         <View className="my-4 flex flex-row items-center justify-between">
           <Text className="text-lg"> Post Activity</Text>
-          <Switch value={postActivity} onValueChange={setPostActivity} />
+          <Switch
+            value={postActivity}
+            onValueChange={(value) => setAttribute("postActivity", value)}
+          />
         </View>
         <View className="border-[0.5px] border-beatdrop-border" />
 
         <View className="my-4 flex flex-row items-center justify-between">
           <Text className="text-lg"> Friend Posts</Text>
-          <Switch value={friendPosts} onValueChange={setFriendPosts} />
+          <Switch
+            value={friendPosts}
+            onValueChange={(value) => setAttribute("friendPosts", value)}
+          />
         </View>
         <View className="border-[0.5px] border-beatdrop-border" />
 
         <View className="my-4 flex flex-row items-center justify-between">
           <Text className="text-lg"> Tagged Posts</Text>
-          <Switch value={taggedPosts} onValueChange={setTaggedPosts} />
+          <Switch
+            value={taggedPosts}
+            onValueChange={(value) => setAttribute("taggedPosts", value)}
+          />
         </View>
         <View className="border-[0.5px] border-beatdrop-border" />
 

@@ -21,6 +21,8 @@ const Password = () => {
   const onCurrentPasswordChange = (text: string) => {
     if (text === dummyPassword) {
       setHasEnteredCorrectPassword(true);
+    } else {
+      setHasEnteredCorrectPassword(false);
     }
   };
 
