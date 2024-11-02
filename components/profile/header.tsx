@@ -3,7 +3,7 @@ import { Image } from "expo-image";
 import { useUser } from "@/hooks/useUser";
 import Icon from "../Icon";
 import { router } from "expo-router";
-import * as Sharing from 'expo-sharing';
+import * as Sharing from "expo-sharing";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -20,19 +20,18 @@ const Header = () => {
       }),
     );
 
-    const [canShare, setShare] = useState(false);
+  const [canShare, setShare] = useState(false);
 
-    useEffect(() => {
-      const getSharingAvailability = async () => {
-        const sharingStatus = await Sharing.isAvailableAsync();
-        if (sharingStatus === true) {
-          setShare(true);
-        } 
-      };
+  useEffect(() => {
+    const getSharingAvailability = async () => {
+      const sharingStatus = await Sharing.isAvailableAsync();
+      if (sharingStatus === true) {
+        setShare(true);
+      }
+    };
 
-      getSharingAvailability();
-    }, []);
-    
+    getSharingAvailability();
+  }, []);
 
   return (
     <View className="items-center p-4">
