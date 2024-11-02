@@ -3,6 +3,8 @@ import { Image } from "expo-image";
 import { useUser } from "@/hooks/useUser";
 import Icon from "../Icon";
 import { router } from "expo-router";
+import * as Sharing from 'expo-sharing';
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const { photo, beatdrops, followers, following, name, username, bio } =
@@ -17,6 +19,20 @@ const Header = () => {
         bio,
       }),
     );
+
+    const [canShare, setShare] = useState(false);
+
+    useEffect(() => {
+      const getSharingAvailability = async () => {
+        const sharingStatus = await Sharing.isAvailableAsync();
+        if (sharingStatus === true) {
+          setShare(true);
+        } 
+      };
+
+      getSharingAvailability();
+    }, []);
+    
 
   return (
     <View className="items-center p-4">
