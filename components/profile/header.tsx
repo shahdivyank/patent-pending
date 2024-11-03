@@ -33,10 +33,23 @@ const Header = () => {
     getSharingAvailability();
   }, []);
 
+  const shareProfile = async () => {
+    if (canShare) {
+      let url = `beatdrop.app/profiles/${username}`;
+      const shareURL = await Sharing.shareAsync(url);
+
+      return shareURL;
+    }
+  };
+
   return (
     <View className="items-center p-4">
       <View className="flex w-full flex-row justify-between">
-        <Icon size={28} name="Share_iOS_Export" />
+        <Icon
+          size={28}
+          name="Share_iOS_Export"
+          onPress={() => shareProfile()}
+        />
         <View className="flex flex-row gap-4">
           <Icon
             size={28}
