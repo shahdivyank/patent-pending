@@ -87,7 +87,7 @@ const Settings = () => {
 
         <TouchableOpacity
           onPress={onSignOut}
-          className="mt-44 h-14 w-full justify-center rounded-full bg-beatdrop-primary"
+          className="mt-40 h-12 w-full justify-center rounded-full bg-beatdrop-primary"
         >
           <Text className="text-center text-xl font-semibold text-white">
             Sign Out
