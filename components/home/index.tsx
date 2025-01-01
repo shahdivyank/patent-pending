@@ -3,8 +3,10 @@ import { View, Text, SafeAreaView } from "react-native";
 import homebg from "@/assets/images/homeBG.png";
 import { ImageBackground } from "expo-image";
 import FontAwesome from "@expo/vector-icons/FontAwesome5";
+import { useUser } from "@/hooks/useUser";
 
 const HomeScreen = () => {
+  const { resetAttributes } = useUser();
   return (
     <ImageBackground source={homebg}>
       <SafeAreaView className="flex h-screen items-center">
@@ -20,7 +22,13 @@ const HomeScreen = () => {
               size={28}
               color="green"
             />
-            <Link className="text-xl text-white" href="/onboarding/0">
+            <Link
+              onPress={() => {
+                resetAttributes();
+              }}
+              className="text-xl text-white"
+              href="/onboarding/0"
+            >
               Sign Up With Spotify
             </Link>
           </View>

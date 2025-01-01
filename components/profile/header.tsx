@@ -28,7 +28,11 @@ const Header = () => {
             name="Edit_Pencil_01"
             onPress={() => router.replace("/profile/edit")}
           />
-          <Icon size={28} name="Settings" />
+          <Icon
+            size={28}
+            name="Settings"
+            onPress={() => router.replace("/profile/settings")}
+          />
         </View>
       </View>
 

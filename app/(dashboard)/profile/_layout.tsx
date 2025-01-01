@@ -17,6 +17,18 @@ export default function StackLayout() {
         }}
       />
       <Stack.Screen
+        name="settings"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="password"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
         name="name"
         options={{
           headerShown: false,
